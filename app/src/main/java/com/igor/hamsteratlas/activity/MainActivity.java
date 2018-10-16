@@ -1,7 +1,9 @@
-package com.igor.hamsteratlas;
+package com.igor.hamsteratlas.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.igor.hamsteratlas.R;
 
 public class MainActivity extends AppCompatActivity {
 
