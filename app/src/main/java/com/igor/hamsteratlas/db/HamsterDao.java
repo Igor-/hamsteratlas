@@ -19,10 +19,16 @@ public interface HamsterDao {
     @Query("SELECT * FROM hamster WHERE pinned = 1")
     List<Hamster>pinned();
 
+    @Query("SELECT * FROM hamster WHERE pinned = 0")
+    List<Hamster>notPinned();
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void insertHamsters(List<Hamster> hamsters);
 
     @Query("DELETE FROM hamster")
     public void deleteAll();
+
+    @Query("SELECT * FROM hamster WHERE name LIKE :search")
+    List<Hamster> findByString(String search);
 
 }

@@ -3,9 +3,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
-
-    <!-- TEST -->
+    <string name="search">Поиск</string>
+    <string name="share">Поделиться</string>
+    <string name="about">/?</string>
+    <string name="share_via">Отправить через</string>
+    <string name="author_info">Автор: Глазырин И.</string>
 
     <string name="test_hamster_name">Rabbit</string>
     <string name="test_hamster_descr">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</string>

@@ -24,6 +24,9 @@ public class HamsterListAdapter extends RecyclerView.Adapter {
     private MainActivity mActivity;
     private RecyclerView mRv;
 
+    public static int VIEW_TYPE_PINNED = 0;
+    public static int VIEW_TYPE_ALL = 1;
+
     public static String TAG = "HamsterListAdapter";
 
     public HamsterListAdapter(List<Hamster> hamsters, MainActivity activity, RecyclerView rv) {
@@ -32,14 +35,32 @@ public class HamsterListAdapter extends RecyclerView.Adapter {
         mRv = rv;
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        Hamster hamster = mHamsters.get(position);
+
+        if (hamster.isPinned()) {
+            return VIEW_TYPE_PINNED;
+        } else {
+            return VIEW_TYPE_ALL;
+        }
+    }
+
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ConstraintLayout v = (ConstraintLayout) LayoutInflater.from(parent.getContext()).inflate(R.layout.item_hamster, parent, false);
+        ConstraintLayout v;
+        if (viewType == VIEW_TYPE_PINNED) {
+            v = (ConstraintLayout) LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pinned_hamster, parent, false);
+        } else {
+            v = (ConstraintLayout) LayoutInflater.from(parent.getContext()).inflate(R.layout.item_hamster, parent, false);
+        }
         ViewHolder viewHolder = new ViewHolder(v);
 
         return viewHolder;
     }
+
+
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
