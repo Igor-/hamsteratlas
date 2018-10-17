@@ -8,7 +8,7 @@ import android.os.Build;
 
 public class ClientInfo {
     public static String getOsVersion() {
-        return Build.VERSION.RELEASE;
+        return  "Android " + Build.VERSION.RELEASE;
     }
     public static String getClientVersion(Context context) {
         ApplicationInfo applicationInfo = context.getApplicationInfo();
