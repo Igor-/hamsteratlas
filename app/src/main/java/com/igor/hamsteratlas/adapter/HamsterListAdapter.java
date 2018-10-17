@@ -1,5 +1,6 @@
 package com.igor.hamsteratlas.adapter;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
@@ -68,7 +69,11 @@ public class HamsterListAdapter extends RecyclerView.Adapter {
 
         @Override
         public void onClick(View view) {
-            Log.d(TAG, "click");
+            int itemPosition = mRv.getChildLayoutPosition(view);
+            Hamster hamster = mHamsters.get(itemPosition);
+            Bundle bundle = new Bundle();
+            bundle.putParcelable("hamster", hamster);
+            mActivity.getNavController().navigate(R.id.action_hamstersFragment_to_hamsterFragment, bundle);
         }
     }
 }
